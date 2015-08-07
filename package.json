@@ -29,6 +29,7 @@
   , "tmp": "~0.0.23"
   , "duplexer": "~0.1.1"
   , "commander": "~2.1.0"
+  , "lodash": "3.10.1"
   }
 , "devDependencies": {
     "mocha": "latest"
