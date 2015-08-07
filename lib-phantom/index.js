@@ -2,7 +2,8 @@
 'use strict';
 
 var system = require('system')
-  , page = require('webpage').create();
+  , page = require('webpage').create()
+  , _ = require('lodash');
 
 var args = [
   'in'
@@ -12,6 +13,10 @@ var args = [
 , 'paperOrientation'
 , 'paperBorder'
 , 'renderDelay'
+, 'headerTemplate'
+, 'headerHeight'
+, 'footerTemplate'
+, 'footerHeight'
 ].reduce(function(args, name, i) {
   args[name] = system.args[i+1];
   return args;
@@ -35,6 +40,18 @@ page.open(args.in, function(status) {
     format: args.paperFormat
   , orientation: args.paperOrientation
   , border: args.paperBorder
+  , header: {
+      height: args.headerHeight,
+      contents: phantom.callback(function(pageNum, numPages) {
+        return _.template(args.headerTemplate)({ pageNum: pageNum, numPages: numPages });
+      })
+    }
+  , footer: {
+      height: args.footerHeight,
+      contents: phantom.callback(function(pageNum, numPages) {
+        return _.template(args.footerTemplate)({ pageNum: pageNum, numPages: numPages });
+      })
+    }
   };
 
   setTimeout(function () {
