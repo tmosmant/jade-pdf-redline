@@ -1,7 +1,7 @@
 jade-pdf-redline [![Build Status](https://travis-ci.org/redpelicans/jade-pdf-redline.png)](https://travis-ci.org/redpelicans/jade-pdf-redline) [![Dependency Status](https://david-dm.org/redpelicans/jade-pdf-redline.png)](https://david-dm.org/redpelicans/jade-pdf-redline) [![Coverage Status](https://coveralls.io/repos/redpelicans/jade-pdf-redline/badge.png?branch=master)](https://coveralls.io/r/redpelicans/jade-pdf-redline?branch=master)
 ===
 
-Node module that converts jade files to PDFs.  
+Node module that converts jade files to PDFs.
 > https://npmjs.org/package/jade-pdf-redline
 
 ## Getting started
@@ -25,38 +25,56 @@ Pass an options object (`jadepdf({/* options */})`) to configure the output.
 
 ##### options.phantomPath
 Type: `String`
-Default value: `Path provided by phantomjs module`  
+Default value: `Path provided by phantomjs module`
 *Path to phantom binary*
 
 ##### options.cssPath
 Type: `String`
-Default value: `../pdf.css`  
+Default value: `../pdf.css`
 *Path to custom CSS file*
 
 ##### options.paperFormat
 Type: `String`
-Default value: `A4`  
+Default value: `A4`
 *'A3', 'A4', 'A5', 'Legal', 'Letter' or 'Tabloid'*
 
 ##### options.paperOrientation
 Type: `String`
-Default value: `portrait`  
+Default value: `portrait`
 *'portrait' or 'landscape'*
 
 ##### options.paperBorder
 Type: `String`
-Default value: `1cm`  
+Default value: `1cm`
 *Supported dimension units are: 'mm', 'cm', 'in', 'px'*
 
 ##### options.renderDelay
 Type: `Number`
-Default value: `1000`  
+Default value: `1000`
 *Delay in ms before rendering the PDF*
 
 ##### options.locals
 Type: `Object`
-Default value: `{}`  
+Default value: `{}`
 *Locals for template*
+
+##### options.header.height
+Type: `String`
+Default value: `0`
+*Header CSS height property*
+
+##### options.header.path
+Type: `String`
+*Path to jade header template*
+
+##### options.footer.height
+Type: `String`
+Default value: `0`
+*Footer CSS height property*
+
+##### options.footer.path
+Type: `String`
+*Path to jade footer template*
 
 ## CLI interface
 
