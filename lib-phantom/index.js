@@ -8,7 +8,6 @@ var system = require('system')
 var args = [
   'in'
 , 'out'
-, 'cssPath'
 , 'paperFormat'
 , 'paperOrientation'
 , 'paperBorder'
@@ -28,13 +27,6 @@ page.open(args.in, function(status) {
     phantom.exit(1);
     return;
   }
-
-  page.evaluate(function(cssPath) {
-    var css = document.createElement('link');
-    css.rel = 'stylesheet';
-    css.href = cssPath;
-    document.querySelector('head').appendChild(css);
-  }, args.cssPath);
 
   page.paperSize = {
     format: args.paperFormat
